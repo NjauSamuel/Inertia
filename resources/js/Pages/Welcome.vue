@@ -1,6 +1,14 @@
 <script setup>
     import { Head, Link, useForm } from '@inertiajs/vue3';
 
+    import { onMounted } from 'vue'
+    import { initFlowbite } from 'flowbite'
+
+    // Initialize Flowbite components on mount
+    onMounted(() => {
+        initFlowbite()
+    })
+
     defineProps({
         canLogin: {
             type: Boolean,
