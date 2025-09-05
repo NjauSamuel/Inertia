@@ -30,18 +30,20 @@
         logoutForm.post(route('logout'));
     }
 
+    const currentYear = new Date().getFullYear();
+
 </script>
 
 <template>
     <Head title="Welcome" />
     <div>
-        <div>                <!-- Flowbite Navbar -->
+        <div>                <!-- Navbar -->
             <nav class="bg-white border-gray-200 dark:bg-gray-900">
                 <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
                     
                     <!-- Logo -->
                     <Link href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                        <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Inertia Logo" />
                         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                             Inertia
                         </span>
@@ -131,7 +133,7 @@
                 <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-12 xl:gap-0 lg:py-16 lg:grid-cols-12">
                     <div class="mr-auto place-self-center lg:col-span-7 xl:col-span-8">
                         <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Building digital products & brands.</h1>
-                        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Here at flowbite we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
+                        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Here at Inertia we focus on markets where technology, innovation, and capital can unlock long-term value and drive economic growth.</p>
                         <form action="#" class="">
                             <div class="flex items-center mb-3">
                                 <div class="relative w-auto mr-3">
@@ -160,7 +162,7 @@
                     <img class="w-full hidden dark:block" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg" alt="dashboard image">
                     <div class="mt-4 md:mt-0">
                         <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Let's create more tools and ideas that brings us together.</h2>
-                        <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Flowbite helps you connect with friends and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups.</p>
+                        <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Inertia helps you connect with friends and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups.</p>
                         <a href="#" class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
                             Get started
                             <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -171,7 +173,7 @@
 
             <footer class="bg-white rounded-lg shadow-sm m-4 dark:bg-gray-800">
                 <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="/" class="hover:underline">Inertia™</a>. All Rights Reserved.
+                <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {{ currentYear }} <a href="/" class="hover:underline">Inertia™</a>. All Rights Reserved.
                 </span>
                 <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
                     <li>
