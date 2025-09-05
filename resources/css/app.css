@@ -29,3 +29,5 @@
     "Noto Color Emoji";
 }
 
+/* Optional: custom dark variant (Flowbite auto-handles this though) */
+@custom-variant dark (&:where(.dark, .dark *));

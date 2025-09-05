@@ -9,6 +9,48 @@
         initFlowbite()
     })
 
+    onMounted(() => {
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleBtn = document.getElementById('theme-toggle');
+
+        if (!themeToggleBtn) return;
+
+        // Show correct icon based on local storage
+        if (
+            localStorage.getItem('color-theme') === 'dark' ||
+            (!('color-theme' in localStorage) &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches)
+        ) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function () {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    });
+
     defineProps({
         canLogin: {
             type: Boolean,
@@ -137,7 +179,23 @@
                 </div>
             </nav>
 
-            <section class="bg-white dark:bg-gray-900">
+            <section class="bg-white dark:bg-gray-900 relative">
+                <button id="theme-toggle" type="button"
+                    class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700
+                        focus:outline-none focus:ring-4 ring-4 ring-gray-200 dark:ring-gray-700 focus:ring-gray-200 dark:focus:ring-gray-700
+                        rounded-lg text-sm p-2.5 absolute top-3 right-6">
+                    <!-- Dark icon -->
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor"
+                        viewBox="0 0 20 20"><path
+                        d="M17.293 13.293A8 8 0 016.707 2.707a8.001
+                        8.001 0 1010.586 10.586z"></path></svg>
+                    <!-- Light icon -->
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor"
+                        viewBox="0 0 20 20"><path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10 2a1 1 0 011 1v1a1 1 0
+                        11-2 0V3a1 1 0 011-1zm4 8a4 4
+                        0 11-8 0 4 4 0 018 0z"></path></svg>
+                </button>
                 <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-12 xl:gap-0 lg:py-16 lg:grid-cols-12">
                     <div class="mr-auto place-self-center lg:col-span-7 xl:col-span-8">
                         <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Building digital products & brands.</h1>
